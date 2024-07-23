@@ -7,9 +7,9 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
-
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -37,6 +37,10 @@ const LoginPage = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <section className="px-5 lg:px-0 bg-white py-16">
       <div className="w-full max-w-[570px] p-4 mx-auto rounded-lg shadow-md md:p-10">
@@ -61,9 +65,9 @@ const LoginPage = () => {
             />
           </div>
 
-          <div className="mb-5">
+          <div className="mb-5 relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter Your Password"
               name="password"
               value={formData.password}
@@ -71,6 +75,13 @@ const LoginPage = () => {
               className="w-full py-3 sm:py-2 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
             />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 px-3 py-2 text-sm font-bold text-skyblue focus:outline-none"
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
           </div>
 
           <div className="mt-7">

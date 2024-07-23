@@ -8,7 +8,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
+    <nav className="w-full flex py-6 justify-between items-center navbar z-[100]">
       <img src={logo} alt="hoobank" className="w-[90px] h-[80px]" />
 
       {/* Desktop Menu */}
@@ -42,8 +42,11 @@ const Navbar = () => {
           onClick={() => setToggle((prev) => !prev)}
         />
         <div className="w-[50px]" /> {/* Spacer div with 50px width */}
-        <Link to="/login" className="bg-blue-500 text-white py-2 px-4 rounded">
-          Login
+        <Link
+          to="/contact"
+          className="bg-blue-500 text-white py-2 px-4 rounded"
+        >
+          Contact
         </Link>
       </div>
 
@@ -66,10 +69,10 @@ const Navbar = () => {
           ))}
           <li className="font-poppins font-normal cursor-pointer text-[16px] text-white mt-4">
             <Link
-              to="/login"
+              to="/contact"
               className="bg-blue-500 text-white py-2 px-4 rounded"
             >
-              Login
+              Contact
             </Link>
           </li>
         </ul>

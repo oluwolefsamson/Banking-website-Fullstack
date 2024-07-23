@@ -1,9 +1,10 @@
 import React from "react";
-import { Clients, Testimonials } from "../components";
+import { Clients, Hero, Testimonials } from "../components";
 
 const ClientPage = () => {
   return (
     <div>
+      <Hero />
       <Testimonials />
       <Clients />
     </div>

@@ -8,24 +8,35 @@ const RegisterPage = () => {
     email: "",
     password: "",
   });
-
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validatePassword = (password) => {
+    const hasNumber = /\d/;
+    const hasLetter = /[a-zA-Z]/;
+    return hasNumber.test(password) && hasLetter.test(password);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validatePassword(formData.password)) {
+      setMessage("Password must contain both letters and numbers.");
+      return;
+    }
+
     setIsLoading(true); // Set loading state
     try {
       const response = await axios.post(
         "http://localhost:3001/api/users/register",
         formData
       );
-
-      alert("Registration successfully");
+      alert("Registration successful");
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || "An unexpected error occurred.";
@@ -33,6 +44,10 @@ const RegisterPage = () => {
     } finally {
       setIsLoading(false); // Reset loading state
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -71,9 +86,9 @@ const RegisterPage = () => {
             />
           </div>
 
-          <div className="mb-5">
+          <div className="mb-5 relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter Your Password"
               name="password"
               value={formData.password}
@@ -81,6 +96,13 @@ const RegisterPage = () => {
               className="w-full py-3 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
             />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 px-3 py-2 text-sm font-bold text-skyblue focus:outline-none"
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
           </div>
 
           <div className="mt-7">
