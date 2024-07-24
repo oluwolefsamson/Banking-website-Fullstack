@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
+// Configure CORS
 app.use(
   cors({
     origin: ["https://banking-website-fullstack.vercel.app"], // Replace with your frontend URL
@@ -14,6 +15,7 @@ app.use(
     credentials: true, // Enable cookies in requests
   })
 );
+
 app.use(express.json());
 
 connectDB();

@@ -18,7 +18,7 @@ const LoginPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        `https://banking-website-fullstack-czjp.vercel.app/api/users/login`, // Use environment variable
+        `http://localhost:3001/api/users/login`, // Use environment variable
         formData
       );
       localStorage.setItem("token", response.data.token);
