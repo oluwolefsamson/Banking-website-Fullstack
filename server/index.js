@@ -1,7 +1,6 @@
 const express = require("express");
 const connectDB = require("./db");
 require("dotenv").config();
-const mongoose = require("mongoose");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 
@@ -10,7 +9,7 @@ const app = express();
 // Configure CORS
 app.use(
   cors({
-    origin: ["https://banking-website-fullstack.vercel.app/"], // Replace with your frontend URL
+    origin: "https://banking-website-fullstack.vercel.app", // Corrected URL without trailing slash
     methods: ["POST", "PUT", "PATCH", "DELETE", "GET"],
     credentials: true, // Enable cookies in requests
   })
