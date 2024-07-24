@@ -37,6 +37,7 @@ const RegisterPage = () => {
         formData
       );
       alert("Registration successful");
+      window.location.reload();
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || "An unexpected error occurred.";
