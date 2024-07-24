@@ -3,13 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -18,22 +15,21 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Set loading state
+    setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/users/login",
+        `http://localhost:3001/api/users/login`, // Use environment variable
         formData
       );
       localStorage.setItem("token", response.data.token);
       setMessage("Login successful!");
-      // Optionally redirect to a protected route after successful login
       navigate("/home"); // Replace with your protected route
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || "An unexpected error occurred.";
       setMessage(errorMessage);
     } finally {
-      setIsLoading(false); // Reset loading state
+      setIsLoading(false);
     }
   };
 
@@ -46,7 +42,7 @@ const LoginPage = () => {
       <div className="w-full max-w-[570px] p-4 mx-auto rounded-lg shadow-md md:p-10">
         <h3 className="text-[22px] leading-9 font-bold mb-10">
           Hello!{" "}
-          <span className="text-primaryColor " style={{ color: "skyblue" }}>
+          <span className="text-primaryColor" style={{ color: "skyblue" }}>
             Welcome
           </span>{" "}
           Back 🍕
@@ -89,7 +85,7 @@ const LoginPage = () => {
               type="submit"
               style={{ backgroundColor: "skyblue" }}
               className="w-full bg-skyblue text-white text-[18px] leading-[30px] rounded-lg px-4 py-3"
-              disabled={isLoading} // Disable button when loading
+              disabled={isLoading}
             >
               {isLoading ? "Logging in..." : "Login"}
             </button>

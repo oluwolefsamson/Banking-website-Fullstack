@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const RegisterPage = () => {
@@ -10,8 +10,8 @@ const RegisterPage = () => {
   });
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,20 +31,21 @@ const RegisterPage = () => {
       return;
     }
 
-    setIsLoading(true); // Set loading state
+    setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/users/register",
+        `http://localhost:3001/api/users/register`, // Use environment variable
         formData
       );
-      alert("Registration successful");
+      console.log(response.data); // Log the response data
+      setMessage("Registration successful!"); // Update message to be more informative
       navigate("/login"); // Redirect to login page
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || "An unexpected error occurred.";
       setMessage(errorMessage);
     } finally {
-      setIsLoading(false); // Reset loading state
+      setIsLoading(false);
     }
   };
 
@@ -59,7 +60,7 @@ const RegisterPage = () => {
           Create an Account{" "}
           <span className="text-primaryColor" style={{ color: "skyblue" }}>
             Join Us
-          </span>
+          </span>{" "}
           🌟
         </h3>
 
@@ -73,6 +74,7 @@ const RegisterPage = () => {
               onChange={handleInputChange}
               className="w-full py-3 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
+              aria-label="Username"
             />
           </div>
 
@@ -85,6 +87,7 @@ const RegisterPage = () => {
               onChange={handleInputChange}
               className="w-full py-3 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
+              aria-label="Email"
             />
           </div>
 
@@ -97,11 +100,13 @@ const RegisterPage = () => {
               onChange={handleInputChange}
               className="w-full py-3 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
+              aria-label="Password"
             />
             <button
               type="button"
               onClick={togglePasswordVisibility}
               className="absolute right-0 top-1/2 transform -translate-y-1/2 px-3 py-2 text-sm font-bold text-skyblue focus:outline-none"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? "Hide" : "Show"}
             </button>
@@ -112,7 +117,8 @@ const RegisterPage = () => {
               type="submit"
               style={{ backgroundColor: "skyblue" }}
               className="w-full bg-skyblue text-white text-[18px] leading-[30px] rounded-lg px-4 py-3"
-              disabled={isLoading} // Disable button when loading
+              disabled={isLoading}
+              aria-label="Register"
             >
               {isLoading ? "Registering..." : "Register"}
             </button>
@@ -136,6 +142,7 @@ const RegisterPage = () => {
               to="/login"
               className="text-primaryColor font-medium ml-1"
               style={{ color: "skyblue" }}
+              aria-label="Login"
             >
               Login
             </Link>
