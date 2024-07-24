@@ -10,7 +10,7 @@ const app = express();
 // Configure CORS
 app.use(
   cors({
-    origin: ["https://banking-website-fullstack.vercel.app"], // Replace with your frontend URL
+    origin: ["https://banking-website-fullstack.vercel.app/"], // Replace with your frontend URL
     methods: ["POST", "PUT", "PATCH", "DELETE", "GET"],
     credentials: true, // Enable cookies in requests
   })
