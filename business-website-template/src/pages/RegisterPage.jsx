@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 
 const RegisterPage = () => {
@@ -11,6 +11,7 @@ const RegisterPage = () => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,6 +38,7 @@ const RegisterPage = () => {
         formData
       );
       alert("Registration successful");
+      navigate("/login"); // Redirect to login page
     } catch (error) {
       const errorMessage =
         error.response?.data?.error || "An unexpected error occurred.";
