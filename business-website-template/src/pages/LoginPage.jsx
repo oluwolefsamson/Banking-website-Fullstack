@@ -58,6 +58,7 @@ const LoginPage = () => {
               onChange={handleInputChange}
               className="w-full py-3 sm:py-2 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
+              autoComplete="current-email"
             />
           </div>
 
@@ -70,6 +71,7 @@ const LoginPage = () => {
               onChange={handleInputChange}
               className="w-full py-3 sm:py-2 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
+              autoComplete="current-password"
             />
             <button
               type="button"
