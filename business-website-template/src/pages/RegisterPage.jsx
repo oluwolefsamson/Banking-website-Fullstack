@@ -34,7 +34,7 @@ const RegisterPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        `https://banking-website-fullstack-czjp.vercel.app/api/users/register`, // Use environment variable
+        `http://localhost:3001/api/users/register`, // Use environment variable
         formData
       );
       console.log(response.data); // Log the response data

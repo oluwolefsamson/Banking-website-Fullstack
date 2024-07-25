@@ -9,8 +9,12 @@ const app = express();
 // Configure CORS
 app.use(
   cors({
-    origin: "https://banking-website-fullstack.vercel.app", // Replace with your frontend URL
+    origin: [
+      "http://localhost:5173",
+      "https://banking-website-fullstack.vercel.app",
+    ], // Replace with your frontend URL
     methods: ["POST", "OPTIONS", "GET", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     credentials: true, // Enable cookies in requests
   })
 );
@@ -23,7 +27,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use("/api/users", userRoutes);
 
-app.get("/", (req, res) => {
+app.get("/api/users", (req, res) => {
   res.send("Hello World!");
 });
 
