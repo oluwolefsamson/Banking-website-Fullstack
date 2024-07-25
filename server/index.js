@@ -14,7 +14,7 @@ app.use(
       "https://banking-website-fullstack.vercel.app",
     ], // Replace with your frontend URL
     methods: ["POST", "OPTIONS", "GET", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+
     credentials: true, // Enable cookies in requests
   })
 );
