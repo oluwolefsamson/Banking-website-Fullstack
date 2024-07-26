@@ -68,11 +68,8 @@ const Navbar = () => {
             </li>
           ))}
           <li className="font-poppins font-normal cursor-pointer text-[16px] text-white mt-4">
-            <Link
-              to="/contact"
-              className="bg-blue-500 text-white py-2 px-4 rounded"
-            >
-              Contact
+            <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded">
+              Logout
             </Link>
           </li>
         </ul>

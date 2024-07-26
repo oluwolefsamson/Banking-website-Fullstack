@@ -89,6 +89,7 @@ const RegisterPage = () => {
               className="w-full py-3 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
               aria-label="Email"
+              autoComplete="current-email"
             />
           </div>
 
@@ -102,6 +103,7 @@ const RegisterPage = () => {
               className="w-full py-3 bg-skyblue border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor"
               required
               aria-label="Password"
+              autoComplete="current-password"
             />
             <button
               type="button"

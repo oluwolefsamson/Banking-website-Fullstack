@@ -1,22 +1,31 @@
-// src/App.js
 import React from "react";
 import { Navbar, Footer } from "./components";
 import styles from "./style";
 import AppRouter from "./router/router";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
+
+// Dummy authentication check function
+const useAuth = () => {
+  const token = localStorage.getItem("token");
+  return !!token;
+};
 
 const App = () => {
   const location = useLocation();
+  const isAuthenticated = useAuth();
 
   // Define paths where Navbar and Footer should be hidden
   const hiddenPaths = ["/", "/login", "/register", "*"];
-  // Include paths that should always show the Navbar and Footer, e.g., "/404" if it were a defined path
-  const alwaysShowPaths = [""];
+  // Define paths where Navbar and Footer should always be shown
+  const alwaysShowPaths = ["/404"];
 
-  // Determine if the current path is hidden
   const isHiddenPage = hiddenPaths.includes(location.pathname);
-  // Optionally include logic for always showing Navbar and Footer on specific paths
   const isAlwaysShowPage = alwaysShowPaths.includes(location.pathname);
+
+  // Redirect to login if accessing a protected route without authentication
+  if (!isAuthenticated && !isHiddenPage) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div className="bg-primary w-full overflow-hidden">
