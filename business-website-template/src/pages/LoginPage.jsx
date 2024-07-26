@@ -18,7 +18,7 @@ const LoginPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        " http://localhost:3001/api/users/login", // Use environment variable
+        "https://banking-website-fullstack.onrender.com/api/users/login", // Use environment variable
         formData
       );
       localStorage.setItem("token", response.data.token);
