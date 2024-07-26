@@ -36,7 +36,7 @@ const App = () => {
           </div>
         </div>
       ) : null}
-      <div className={`bg-primary ${styles.flexStart}`}>
+      <div className={`bg-white ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <AppRouter />
         </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col h-screen items-center justify-center  px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col h-screen items-center justify-center bg-black px-4 sm:px-6 lg:px-8">
       <h1
         className="text-3xl text-center sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8"
         style={{

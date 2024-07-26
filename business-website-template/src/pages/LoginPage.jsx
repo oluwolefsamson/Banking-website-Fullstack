@@ -38,7 +38,7 @@ const LoginPage = () => {
   };
 
   return (
-    <section className="px-5 lg:px-0 bg-white py-16">
+    <section className="w-full px-5 lg:px-0 bg-white py-16">
       <div className="w-full max-w-[570px] p-4 mx-auto rounded-lg shadow-md md:p-10">
         <h3 className="text-[22px] leading-9 font-bold mb-10">
           Hello!{" "}
