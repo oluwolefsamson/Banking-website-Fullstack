@@ -48,10 +48,24 @@ export default function ContactPage() {
         />
       </div>
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2
+          className="text-3xl font-bold tracking-tight sm:text-4xl"
+          style={{
+            background: "linear-gradient(to right, blue, skyblue)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
           Contact sales
         </h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
+        <p
+          className="mt-2 text-lg font-bold leading-8 text-gray-600"
+          style={{
+            background: "linear-gradient(to right, grey, skyblue)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
           Get in touch with us for any questions or support regarding your
           account—our team is here to help!
         </p>
@@ -124,7 +138,7 @@ export default function ContactPage() {
             type="submit"
             disabled={isSubmitting}
             className={`block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm ${
-              isSubmitting ? "bg-gray-400" : "bg-green-600 hover:bg-green-700"
+              isSubmitting ? "bg-sky-400" : "bg-sky-600 hover:bg-blue-700"
             } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
           >
             {isSubmitting ? "Sending..." : "Let's talk"}
