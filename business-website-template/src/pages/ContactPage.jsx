@@ -65,6 +65,7 @@ export default function ContactPage() {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
+          data-aos="zoom-in"
         >
           Get in touch with us for any questions or support regarding your
           account—our team is here to help!

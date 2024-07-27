@@ -1,6 +1,10 @@
 // src/LandingPage.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import "aos/dist/aos.css";
+import AOS from "aos";
+
+AOS.init({ duration: 3000 });
 
 const Landing = () => {
   return (
@@ -12,10 +16,14 @@ const Landing = () => {
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}
+        data-aos="fade-up" // Example animation type
       >
         Welcome to My Project
       </h1>
-      <p className="text-base text-center sm:text-lg text-white md:text-xl lg:text-2xl mb-6 sm:mb-8">
+      <p
+        className="text-base text-center sm:text-lg text-white md:text-xl lg:text-2xl mb-6 sm:mb-8"
+        data-aos="zoom-in" // Example animation type
+      >
         Your one-stop solution for managing competitions.
       </p>
       <Link to="/login">
