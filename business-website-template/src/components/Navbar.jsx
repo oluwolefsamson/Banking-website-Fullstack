@@ -8,7 +8,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar z-[100]">
+    <nav className="w-full flex py-6 justify-between items-center navbar ">
       <img src={logo} alt="hoobank" className="w-[90px] h-[80px]" />
 
       {/* Desktop Menu */}
@@ -54,13 +54,13 @@ const Navbar = () => {
       <div
         className={`${
           toggle ? "flex" : "hidden"
-        } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+        } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar mt-4 z-[2000]`}
       >
-        <ul className="list-none flex flex-col justify-end items-center flex-1">
+        <ul className="list-none flex flex-col justify-end items-center  flex-1">
           {navLinks.map((nav, i) => (
             <li
               key={nav.id}
-              className={`font-poppins font-normal cursor-pointer text-[16px] ${
+              className={`font-poppins font-normal cursor-pointer text-[16px] p-2 ${
                 i === navLinks.length - 1 ? "mr-0" : "mb-4"
               } text-white`}
             >
